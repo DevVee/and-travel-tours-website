@@ -1,0 +1,58 @@
+import type { Testimonial } from '@/types'
+
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: 'Maria Santos',
+    location: 'Bacoor, Cavite',
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'A N D Travel made our Japan trip absolutely magical! Everything was perfectly organized — from the flights to the hotels and tours. We didn\'t have to worry about a single thing. Will definitely book again!',
+    destination: 'Japan',
+  },
+  {
+    id: 2,
+    name: 'Rolando Cruz',
+    location: 'Dasmariñas, Cavite',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'Our South Korea trip was a dream come true. The visa processing was smooth and stress-free. The team at A N D Travel is very responsive and truly cares about their clients.',
+    destination: 'South Korea',
+  },
+  {
+    id: 3,
+    name: 'Jennifer Reyes',
+    location: 'Las Piñas City',
+    avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'We booked our family tour to Singapore and Malaysia through A N D Travel. The itinerary was well-planned and the value for money was excellent. Highly recommended for families!',
+    destination: 'Singapore & Malaysia',
+  },
+  {
+    id: 4,
+    name: 'Dennis Villanueva',
+    location: 'Imus, Cavite',
+    avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'Our company\'s team building trip to Thailand was handled exceptionally well. From airport transfers to hotel check-ins, every detail was taken care of. Professional service at its finest!',
+    destination: 'Thailand',
+  },
+  {
+    id: 5,
+    name: 'Ana Liza Mendoza',
+    location: 'Cavite City',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'I\'ve been booking with A N D Travel for 3 years now. They are my go-to travel agency. Always reliable, affordable, and they go above and beyond for their clients. Thank you!',
+    destination: 'Multiple Destinations',
+  },
+  {
+    id: 6,
+    name: 'Mark Antonio',
+    location: 'Tagaytay City',
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&q=80&auto=format&fit=crop&crop=face',
+    rating: 5,
+    text: 'Booked our honeymoon trip to Dubai with A N D Travel. The experience was beyond our expectations — luxury hotel, desert safari, everything perfect. They made our special trip unforgettable!',
+    destination: 'Dubai',
+  },
+]
