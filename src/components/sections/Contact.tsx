@@ -1,17 +1,15 @@
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Share2, MessageCircle, ScanLine } from 'lucide-react'
-import { SectionHeader } from '@ui/SectionHeader'
+import { SectionHeader }  from '@ui/SectionHeader'
+import { LocalQRCode }   from '@ui/LocalQRCode'
+import { CONTACT }       from '@data/contact'
 import { fadeLeftVariants, fadeRightVariants, fadeUpVariants, defaultViewport } from '@lib/animations'
-
-const MAP_EMBED = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d963.5!2d120.9912!3d14.4097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d100207fad3b%3A0x5fba74cbe6b7fcc!2sBlk%2010%20Lot%206!5e0!3m2!1sen!2sph!4v1718000000`
-
-const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent('https://www.facebook.com/profile.php?id=61590018405492')}&bgcolor=ffffff&color=000000&margin=12`
 
 export function Contact() {
   return (
     <section id="contact" className="bg-gray-50">
 
-      {/* ── Top: Contact Info + QR ─────────────────────── */}
+      {/* ── Top: Contact Info + QR ─────────────────────────── */}
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionHeader
@@ -36,12 +34,12 @@ export function Contact() {
                 {/* Phone */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Phone size={16} className="text-brand-orange" />
+                    <Phone size={16} className="text-brand-orange" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-white/45 text-xs mb-1 uppercase tracking-wider">Phone</p>
-                    <a href="tel:09159234547" className="block text-sm text-white hover:text-brand-orange transition-colors">
-                      09159234547
+                    <a href={CONTACT.phoneTel} className="block text-sm text-white hover:text-brand-orange transition-colors">
+                      {CONTACT.phoneFormatted}
                     </a>
                   </div>
                 </div>
@@ -49,12 +47,12 @@ export function Contact() {
                 {/* Email */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0">
-                    <Mail size={16} className="text-brand-orange" />
+                    <Mail size={16} className="text-brand-orange" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-white/45 text-xs mb-1 uppercase tracking-wider">Email</p>
-                    <a href="mailto:A.travelandtours@gmail.com" className="text-sm text-white hover:text-brand-orange transition-colors break-all">
-                      A.travelandtours@gmail.com
+                    <a href={CONTACT.emailHref} className="text-sm text-white hover:text-brand-orange transition-colors break-all">
+                      {CONTACT.email}
                     </a>
                   </div>
                 </div>
@@ -62,12 +60,12 @@ export function Contact() {
                 {/* Address */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0">
-                    <MapPin size={16} className="text-brand-orange" />
+                    <MapPin size={16} className="text-brand-orange" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-white/45 text-xs mb-1 uppercase tracking-wider">Address</p>
-                    <p className="text-sm text-white/80 leading-relaxed">
-                      Blk 10 Lot 6, Danarose Residences,<br />Bacoor, Cavite, Philippines
+                    <p className="text-sm text-white/80 leading-relaxed whitespace-pre-line">
+                      {CONTACT.address}
                     </p>
                   </div>
                 </div>
@@ -80,21 +78,21 @@ export function Contact() {
               <div className="flex flex-col gap-3">
                 <p className="text-white/45 text-xs uppercase tracking-widest">Connect With Us</p>
                 <a
-                  href="https://www.facebook.com/profile.php?id=61590018405492"
+                  href={CONTACT.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl text-sm text-white font-medium hover:bg-brand-orange transition-colors"
                 >
-                  <Share2 size={16} />
+                  <Share2 size={16} aria-hidden="true" />
                   A N D Travel and Tours — Facebook
                 </a>
                 <a
-                  href="https://www.facebook.com/messages/t/61590018405492"
+                  href={CONTACT.messenger}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-xl text-sm text-white font-medium hover:bg-brand-orange transition-colors"
                 >
-                  <MessageCircle size={16} />
+                  <MessageCircle size={16} aria-hidden="true" />
                   Chat with us on Messenger
                 </a>
               </div>
@@ -104,7 +102,9 @@ export function Contact() {
               </div>
             </motion.div>
 
-            {/* QR Code card */}
+            {/* QR Code card
+                FIX M-04: LocalQRCode replaces api.qrserver.com API call
+            */}
             <motion.div
               variants={fadeRightVariants}
               initial="hidden"
@@ -114,19 +114,13 @@ export function Contact() {
             >
               {/* SCAN ME header */}
               <div className="flex items-center gap-2 bg-brand-orange rounded-xl px-5 py-2">
-                <ScanLine size={14} className="text-white" />
+                <ScanLine size={14} className="text-white" aria-hidden="true" />
                 <span className="text-white text-xs font-black tracking-[0.2em] uppercase">Scan Me</span>
               </div>
 
-              {/* QR image */}
+              {/* QR — rendered locally, no third-party API */}
               <div className="bg-white rounded-2xl p-3 shadow-card-lg border-2 border-brand-orange/15">
-                <img
-                  src={QR_URL}
-                  alt="Scan QR to connect on Facebook"
-                  width={220}
-                  height={220}
-                  className="block rounded-xl"
-                />
+                <LocalQRCode size={220} />
               </div>
 
               <div>
@@ -137,7 +131,7 @@ export function Contact() {
               </div>
 
               <a
-                href="https://www.facebook.com/profile.php?id=61590018405492"
+                href={CONTACT.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-brand-orange text-white text-sm font-semibold rounded-xl hover:bg-orange-600 transition-colors"
@@ -159,15 +153,19 @@ export function Contact() {
         className="w-full"
         style={{ height: '450px' }}
       >
+        {/*
+          FIX L-11: referrerPolicy changed from "no-referrer-when-downgrade"
+          (sends full URL) to "strict-origin" (sends only origin, better privacy).
+        */}
         <iframe
           title="A N D Travel and Tours — Blk 10 Lot 6, Danarose Residences, Bacoor Cavite"
-          src={MAP_EMBED}
+          src={CONTACT.mapEmbed}
           width="100%"
           height="100%"
           style={{ border: 0, display: 'block' }}
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="strict-origin"
         />
       </motion.div>
 

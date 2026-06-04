@@ -80,10 +80,17 @@ export function BrandLogo({ height = 52, variant = 'dark', className = '', scrol
   return (
     <div className={`relative inline-flex items-center transition-all duration-300 ${className}`} style={{ height: displayHeight }}>
       {/* Try actual logo image first */}
+      {/*
+        FIX L-10: explicit width attribute prevents CLS — browser can reserve
+        space before the image loads instead of causing a layout shift.
+        width: auto via style overrides the HTML attribute for actual rendering
+        so the logo never distorts, but the attribute hints the aspect ratio.
+      */}
       <img
         src="/logo.png"
         alt="A N D Travel and Tours Logo"
         height={displayHeight}
+        width={Math.round(displayHeight * 1.5)}
         style={{ height: displayHeight, width: 'auto', display: 'block' }}
         className={`transition-all duration-300 drop-shadow-sm ${variant === 'light' ? 'brightness-0 invert' : ''}`}
         onError={(e) => {

@@ -1,6 +1,12 @@
-/*
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
+# Security headers are configured in vercel.json (Vercel deployment).
+# This file has no effect on Vercel — it is kept here only as documentation.
+# If you migrate to Netlify, uncomment the block below and remove vercel.json headers.
+#
+# /*
+#   X-Frame-Options: SAMEORIGIN
+#   X-Content-Type-Options: nosniff
+#   X-XSS-Protection: 1; mode=block
+#   Referrer-Policy: strict-origin-when-cross-origin
+#   Permissions-Policy: camera=(), microphone=(), geolocation=()
+#   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+#   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://images.unsplash.com; frame-src https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'; upgrade-insecure-requests;

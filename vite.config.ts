@@ -18,7 +18,8 @@ export default defineConfig({
   },
   build: {
     target: 'es2020',
-    sourcemap: false,       // No source maps in production (hides code structure)
+    sourcemap: false,            // No source maps in production (hides code structure)
+    modulePreload: { polyfill: false }, // Disable inline-script polyfill — required for strict CSP (script-src 'self')
     chunkSizeWarningLimit: 700,
     rollupOptions: {
       output: {
@@ -26,6 +27,8 @@ export default defineConfig({
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'react-vendor'
           if (id.includes('node_modules/framer-motion')) return 'motion-vendor'
           if (id.includes('node_modules/lucide-react')) return 'icons-vendor'
+          if (id.includes('node_modules/qrcode.react')) return 'qr-vendor'
+          if (id.includes('node_modules/@fontsource')) return 'fonts-vendor'
         },
       },
     },
@@ -35,6 +38,6 @@ export default defineConfig({
     open: true,
   },
   optimizeDeps: {
-    include: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge'],
+    include: ['framer-motion', 'lucide-react', 'clsx', 'tailwind-merge', 'qrcode.react'],
   },
 })

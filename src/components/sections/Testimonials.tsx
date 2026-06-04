@@ -1,19 +1,20 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
+import { Star, ChevronLeft, ChevronRight, Quote, Pause, Play } from 'lucide-react'
 import { AnimatedSection } from '@ui/AnimatedSection'
-import { SectionHeader } from '@ui/SectionHeader'
+import { SectionHeader }   from '@ui/SectionHeader'
 import { testimonialVariants, defaultViewport } from '@lib/animations'
-import { useSlider } from '@hooks/useSlider'
-import { testimonials } from '@data/testimonials'
+import { useSlider }       from '@hooks/useSlider'
+import { testimonials }    from '@data/testimonials'
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
           size={14}
           className={i < rating ? 'text-amber-400 fill-amber-400' : 'text-gray-200 fill-gray-200'}
+          aria-hidden="true"
         />
       ))}
     </div>
@@ -21,7 +22,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function Testimonials() {
-  const { currentIndex, direction, goNext, goPrev, goTo } = useSlider(testimonials.length, 5000)
+  const { currentIndex, direction, paused, goNext, goPrev, goTo, setPaused } = useSlider(testimonials.length, 5000)
   const testimonial = testimonials[currentIndex]
 
   return (
@@ -35,12 +36,16 @@ export function Testimonials() {
 
         <div className="relative max-w-3xl mx-auto">
           {/* Large quote icon */}
-          <div className="absolute -top-4 -left-4 text-brand-orange/10 pointer-events-none">
+          <div className="absolute -top-4 -left-4 text-brand-orange/10 pointer-events-none" aria-hidden="true">
             <Quote size={80} />
           </div>
 
           {/* Testimonial Card */}
-          <div className="bg-white rounded-3xl shadow-card-lg p-8 md:p-12 min-h-[280px] flex flex-col justify-between relative overflow-hidden">
+          <div
+            className="bg-white rounded-3xl shadow-card-lg p-8 md:p-12 min-h-[280px] flex flex-col justify-between relative overflow-hidden"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             <AnimatePresence custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -71,12 +76,14 @@ export function Testimonials() {
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full object-cover ring-2 ring-brand-orange/20"
                     loading="lazy"
+                    width={48}
+                    height={48}
                   />
                   <div>
                     <p className="font-semibold text-brand-black text-sm">{testimonial.name}</p>
                     <p className="text-xs text-gray-400">{testimonial.location}</p>
                   </div>
-                  <div className="ml-auto text-4xl font-bold font-heading text-gray-100 select-none">
+                  <div className="ml-auto text-4xl font-bold font-heading text-gray-100 select-none" aria-hidden="true">
                     "
                   </div>
                 </div>
@@ -84,14 +91,16 @@ export function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation + Pause ─────────────────────────────────────────────────
+              FIX H-05: Pause button added for WCAG 2.2.2 (Pause, Stop, Hide).
+          ──────────────────────────────────────────────────────────────────── */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={goPrev}
               className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:border-brand-orange hover:text-brand-orange transition-all duration-200"
-              aria-label="Previous"
+              aria-label="Previous testimonial"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={18} aria-hidden="true" />
             </button>
 
             {/* Dots */}
@@ -101,6 +110,7 @@ export function Testimonials() {
                   key={i}
                   onClick={() => goTo(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
+                  aria-pressed={i === currentIndex}
                   className={`rounded-full transition-all duration-300 ${
                     i === currentIndex
                       ? 'w-6 h-2 bg-brand-orange'
@@ -110,12 +120,24 @@ export function Testimonials() {
               ))}
             </div>
 
+            {/* Pause / Play */}
+            <button
+              onClick={() => setPaused(p => !p)}
+              aria-label={paused ? 'Resume testimonials' : 'Pause testimonials'}
+              aria-pressed={paused}
+              className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:border-brand-orange hover:text-brand-orange transition-all duration-200"
+            >
+              {paused
+                ? <Play  size={16} aria-hidden="true" />
+                : <Pause size={16} aria-hidden="true" />}
+            </button>
+
             <button
               onClick={goNext}
               className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center text-gray-400 hover:border-brand-orange hover:text-brand-orange transition-all duration-200"
-              aria-label="Next"
+              aria-label="Next testimonial"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={18} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -133,7 +155,14 @@ export function Testimonials() {
               <StarRating rating={t.rating} />
               <p className="text-gray-600 text-sm italic mt-3 mb-4 line-clamp-3">"{t.text}"</p>
               <div className="flex items-center gap-2">
-                <img src={t.avatarUrl} alt={t.name} className="w-8 h-8 rounded-full object-cover" loading="lazy" />
+                <img
+                  src={t.avatarUrl}
+                  alt={t.name}
+                  className="w-8 h-8 rounded-full object-cover"
+                  loading="lazy"
+                  width={32}
+                  height={32}
+                />
                 <div>
                   <p className="text-xs font-semibold text-brand-black">{t.name}</p>
                   <p className="text-[10px] text-gray-400">{t.location}</p>

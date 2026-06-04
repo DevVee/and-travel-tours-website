@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, Share2, Menu, X } from 'lucide-react'
-import { useScrolled } from '@hooks/useScrolled'
-import { useActiveSection } from '@hooks/useActiveSection'
+import { useScrolled }       from '@hooks/useScrolled'
+import { useActiveSection }  from '@hooks/useActiveSection'
 import { mobileMenuVariants } from '@lib/animations'
-import { BrandLogo } from '@ui/BrandLogo'
-import { cn } from '@lib/utils'
+import { BrandLogo }         from '@ui/BrandLogo'
+import { CONTACT }           from '@data/contact'
+import { cn }                from '@lib/utils'
 
 const navLinks = [
   { label: 'Home',         href: '#home',         sectionId: 'home' },
   { label: 'About Us',     href: '#about',        sectionId: 'about' },
   { label: 'Services',     href: '#packages',     sectionId: 'packages' },
   { label: 'Destinations', href: '#destinations', sectionId: 'destinations' },
-  { label: 'Credentials',  href: '#credentials',  sectionId: 'credentials' },
 ]
 
 const SECTION_IDS = navLinks.map(l => l.sectionId)
@@ -20,21 +20,18 @@ const SECTION_IDS = navLinks.map(l => l.sectionId)
 // Smooth scroll helper — works on all browsers including mobile Safari
 function scrollToSection(id: string) {
   const el = document.getElementById(id)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 export function Header() {
-  const scrolled = useScrolled(60)
+  const scrolled     = useScrolled(60)
   const [menuOpen, setMenuOpen] = useState(false)
-  // logoError state no longer needed — BrandLogo handles fallback internally
   const activeSection = useActiveSection(SECTION_IDS)
 
   function handleNavClick(e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) {
     e.preventDefault()
     setMenuOpen(false)
-    // Small delay to let mobile menu close first
+    // Small delay so mobile menu animation completes before scrolling
     setTimeout(() => scrollToSection(sectionId), menuOpen ? 200 : 0)
   }
 
@@ -54,17 +51,17 @@ export function Header() {
       )}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 sm:gap-4">
-            <a href="tel:09159234547" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
-              <Phone size={11} /><span>09159234547</span>
+            <a href={CONTACT.phoneTel} className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
+              <Phone size={11} aria-hidden="true" /><span>{CONTACT.phoneFormatted}</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="mailto:A.travelandtours@gmail.com" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
-              <Mail size={11} /><span className="hidden md:inline">A.travelandtours@gmail.com</span>
+            <a href={CONTACT.emailHref} className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
+              <Mail size={11} aria-hidden="true" /><span className="hidden md:inline">{CONTACT.email}</span>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61590018405492" target="_blank" rel="noopener noreferrer"
+            <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
-              <Share2 size={11} /><span className="hidden sm:inline">Facebook</span>
+              <Share2 size={11} aria-hidden="true" /><span className="hidden sm:inline">Facebook</span>
             </a>
           </div>
         </div>
@@ -77,7 +74,7 @@ export function Header() {
           scrolled ? 'h-14' : 'h-16'
         )}>
 
-          {/* Logo — shrinks when scrolled, SVG fallback auto-triggers if logo.png missing */}
+          {/* Logo */}
           <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="flex items-center group">
             <BrandLogo
               height={scrolled ? 40 : 60}
@@ -87,12 +84,13 @@ export function Header() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
             {navLinks.map(link => {
               const isActive = activeSection === link.sectionId
               return (
                 <a key={link.href} href={link.href}
                   onClick={(e) => handleNavClick(e, link.sectionId)}
+                  aria-current={isActive ? 'page' : undefined}
                   className={cn(
                     'px-3 py-2 text-sm rounded-lg transition-all duration-200 whitespace-nowrap',
                     isActive
@@ -114,12 +112,18 @@ export function Header() {
             </a>
           </nav>
 
-          {/* Mobile Burger */}
-          <button onClick={() => setMenuOpen(v => !v)}
+          {/* Mobile Burger
+              FIX M-05: Added aria-expanded and aria-controls for screen-reader support.
+          */}
+          <button
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             className={cn('lg:hidden p-2 rounded-lg transition-colors',
               scrolled ? 'text-brand-black hover:bg-gray-100' : 'text-white hover:bg-white/10')}
-            aria-label="Toggle menu">
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          >
+            {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -127,13 +131,23 @@ export function Header() {
       {/* ── Mobile Menu ──────────────────────────────────── */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div key="mobile-menu" variants={mobileMenuVariants}
-            initial="hidden" animate="visible" exit="exit"
-            className="lg:hidden bg-white border-t border-gray-100 shadow-card-lg overflow-hidden">
-            <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+          <motion.div
+            id="mobile-menu"
+            key="mobile-menu"
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="lg:hidden bg-white border-t border-gray-100 shadow-card-lg overflow-hidden"
+          >
+            <nav
+              className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1"
+              aria-label="Mobile navigation"
+            >
               {navLinks.map(link => (
                 <a key={link.href} href={link.href}
                   onClick={(e) => handleNavClick(e, link.sectionId)}
+                  aria-current={activeSection === link.sectionId ? 'page' : undefined}
                   className={cn(
                     'px-4 py-3 font-medium rounded-lg transition-colors text-sm',
                     activeSection === link.sectionId
@@ -149,8 +163,12 @@ export function Header() {
                 Contact Us
               </a>
               <div className="mt-3 pt-3 border-t border-gray-100 flex flex-col gap-2 text-sm text-gray-500">
-                <a href="tel:09159234547" className="flex items-center gap-2 hover:text-brand-orange py-1"><Phone size={14} /> 09159234547</a>
-                <a href="mailto:A.travelandtours@gmail.com" className="flex items-center gap-2 hover:text-brand-orange py-1"><Mail size={14} /> A.travelandtours@gmail.com</a>
+                <a href={CONTACT.phoneTel} className="flex items-center gap-2 hover:text-brand-orange py-1">
+                  <Phone size={14} aria-hidden="true" /> {CONTACT.phoneFormatted}
+                </a>
+                <a href={CONTACT.emailHref} className="flex items-center gap-2 hover:text-brand-orange py-1">
+                  <Mail size={14} aria-hidden="true" /> {CONTACT.email}
+                </a>
               </div>
             </nav>
           </motion.div>

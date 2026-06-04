@@ -5,8 +5,8 @@
 @layer base {
   :root {
     --color-orange: #F97316;
-    --color-black: #111111;
-    --color-gold: #D4A017;
+    --color-black:  #111111;
+    --color-gold:   #D4A017;
     scroll-behavior: smooth;
   }
 
@@ -14,7 +14,7 @@
   *::before,
   *::after {
     box-sizing: border-box;
-    margin: 0;
+    margin:  0;
     padding: 0;
   }
 
@@ -48,6 +48,21 @@
     width: 100%;
     min-height: 100vh;
   }
+
+  /* ── Focus styles — WCAG 2.4.7 (Focus Visible) ─────────────────────────
+     All interactive elements must have a visible focus indicator.
+     Using :focus-visible so mouse users are unaffected (ring only on keyboard nav).
+  ──────────────────────────────────────────────────────────────────────── */
+  :focus-visible {
+    outline: 3px solid #F97316;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Remove default outline when :focus-visible applies — avoids double ring */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @layer utilities {
@@ -62,22 +77,41 @@
     background: linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.92) 100%);
   }
 
-  ::-webkit-scrollbar {
-    width: 6px;
+  /* Screen-reader only — visible when focused (used for skip-to-content) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+
+  .sr-only.focus\:not-sr-only:focus,
+  .focus\:not-sr-only:focus-visible {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
-  ::-webkit-scrollbar-thumb {
-    background: #F97316;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #D4A017;
-  }
+
+  ::-webkit-scrollbar       { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; }
+  ::-webkit-scrollbar-thumb { background: #F97316; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #D4A017; }
 }
 
-/* Respect user's motion preferences — disable animations for accessibility */
+/* ── Respect user's motion preferences — WCAG 2.3.3 ──────────────────────
+   CSS transitions/animations are killed. Framer Motion listens to
+   MotionConfig reducedMotion="user" set in App.tsx for JS animations.
+──────────────────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

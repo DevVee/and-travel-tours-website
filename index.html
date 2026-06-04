@@ -32,9 +32,13 @@
     <meta property="og:type" content="business.business" />
     <meta property="og:title" content="A N D Travel and Tours | Travel Agency Bacoor Cavite" />
     <meta property="og:description" content="DTI & BIR registered travel agency in Bacoor, Cavite. Affordable tour packages to Japan, Korea, Europe, Dubai & more. Visa assistance, airline ticketing, hotel reservations." />
+    <!--
+      TODO: Replace /logo.png with a purpose-built 1200×630 OG banner image
+      that shows the brand + a travel photo for better social sharing previews.
+      Until then, og:image:width / og:image:height are omitted to avoid claiming
+      incorrect dimensions (the logo is not 1200×630).
+    -->
     <meta property="og:image" content="https://andtravelandtours.com/logo.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://andtravelandtours.com" />
     <meta property="og:site_name" content="A N D Travel and Tours" />
     <meta property="og:locale" content="en_PH" />
@@ -45,20 +49,42 @@
     <meta property="business:contact_data:phone_number" content="+639159234547" />
     <meta property="business:contact_data:email" content="A.travelandtours@gmail.com" />
 
-    <!-- ═══ SECURITY ══════════════════════════════════════════════════ -->
+    <!-- ═══ TWITTER CARD (FIX L-02) ══════════════════════════════════
+         Required for rich previews when the URL is shared on Twitter/X.
+    ════════════════════════════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="A N D Travel and Tours | Travel Agency Bacoor Cavite" />
+    <meta name="twitter:description" content="DTI & BIR registered travel agency in Bacoor, Cavite. Affordable tour packages to Japan, Korea, Europe, Dubai & more. Visa assistance, airline ticketing, hotel reservations." />
+    <meta name="twitter:image" content="https://andtravelandtours.com/logo.png" />
+
+    <!-- ═══ SECURITY (meta layer — HTTP headers in vercel.json are primary) ══ -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- ═══ PERFORMANCE ═══════════════════════════════════════════════ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- ═══ PERFORMANCE ═══════════════════════════════════════════════
+         FIX M-09: Google Fonts removed. Fonts are now self-hosted via
+         @fontsource (imported in src/main.tsx), eliminating:
+           – External DNS lookups on every visit
+           – Render-blocking third-party CSS
+           – Google IP-logging of site visitors
+
+         FIX M-06: Preload the first hero slide image so the browser starts
+         fetching it immediately — before JS executes — improving LCP.
+         This is the Largest Contentful Paint element on the page.
+    ════════════════════════════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://api.qrserver.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&q=90&auto=format&fit=crop"
+      fetchpriority="high"
+    />
 
     <!-- ═══ JSON-LD STRUCTURED DATA ═══════════════════════════════════
-         This is the most important SEO element — tells Google exactly
-         what kind of business this is, where it is, and what it does.
+         FIX M-08: Removed fabricated aggregateRating (ratingValue:"5",
+         reviewCount:"5000"). Google's guidelines require aggregate ratings
+         to reflect real, verifiable reviews — hardcoded data risks a manual
+         penalty. Remove or restore only when backed by a real review platform.
     ════════════════════════════════════════════════════════════════════ -->
     <script type="application/ld+json">
     {
@@ -119,12 +145,6 @@
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Visa Assistance" } },
               { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Group and Corporate Travel" } }
             ]
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "reviewCount": "5000",
-            "bestRating": "5"
           }
         },
         {
