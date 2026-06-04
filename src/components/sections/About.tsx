@@ -5,7 +5,7 @@ import { fadeUpVariants, fadeLeftVariants, fadeRightVariants, defaultViewport } 
 
 const collageImages = [
   { src: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=80&auto=format&fit=crop', alt: 'International travel', tall: true },
-  { src: 'https://images.unsplash.com/photo-1559827291-72304cead5bc?w=400&q=80&auto=format&fit=crop', alt: 'Boracay white beach', tall: false },
+  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80&auto=format&fit=crop', alt: 'Boracay white beach', tall: false },
   { src: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&q=80&auto=format&fit=crop', alt: 'Paris Eiffel Tower', tall: false },
   { src: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&q=80&auto=format&fit=crop', alt: 'New York City skyline', tall: true },
 ]
