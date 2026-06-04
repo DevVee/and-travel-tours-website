@@ -7,6 +7,7 @@ import { MissionVision } from '@sections/MissionVision'
 import { WhyChooseUs }   from '@sections/WhyChooseUs'
 import { ServicesVisual }from '@sections/ServicesVisual'
 import { Destinations }  from '@sections/Destinations'
+import { Credentials }   from '@sections/Credentials'
 import { Contact }       from '@sections/Contact'
 
 function App() {
@@ -36,8 +37,7 @@ function App() {
           <WhyChooseUs />
           <ServicesVisual />
           <Destinations />
-          {/* Credentials hidden — will be restored when real document scans are ready */}
-          {/* <Credentials /> */}
+          <Credentials />
           <Contact />
         </main>
 

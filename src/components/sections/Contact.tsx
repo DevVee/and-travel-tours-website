@@ -1,4 +1,5 @@
 import { useState }   from 'react'
+import emailjs        from '@emailjs/browser'
 import { motion }     from 'framer-motion'
 import {
   Phone, Mail, MapPin, Share2, MessageCircle,
@@ -113,14 +114,22 @@ function ContactForm() {
     }
     setStatus('loading'); setErrors({})
     try {
-      // ── EmailJS — paste 3 keys + uncomment when ready ─────────────────────
-      // import emailjs from '@emailjs/browser'
-      // await emailjs.send('service_ast3kud', 'YOUR_TEMPLATE_ID', {
-      //   from_name: form.name, phone: form.phone,
-      //   reply_to: form.email, service: form.service, message: form.message,
-      // }, 'YOUR_PUBLIC_KEY')
+      // ── EmailJS ───────────────────────────────────────────────────────────
+      const payload = {
+        name:    form.name,
+        phone:   form.phone,
+        email:   form.email,
+        service: form.service,
+        message: form.message,
+        time:    new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' }),
+      }
+
+      // 1) Notify AND Travel inbox
+      await emailjs.send('service_ast3kud', 'template_h4dpk4n', payload, '11QeIgaaMj6kvVtNa')
+
+      // 2) Auto-reply to the visitor
+      await emailjs.send('service_ast3kud', 'template_4dfgksp', payload, '11QeIgaaMj6kvVtNa')
       // ─────────────────────────────────────────────────────────────────────
-      await new Promise(r => setTimeout(r, 1300))
       setStatus('success'); setForm(EMPTY)
     } catch { setStatus('error') }
   }
@@ -270,17 +279,20 @@ export function Contact() {
               <h3 className="font-bold text-xl font-heading">Contact Information</h3>
 
               <div className="flex flex-col gap-5">
-                <a href={CONTACT.phoneTel} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-orange transition-colors duration-200">
-                    <Phone size={16} className="text-brand-orange group-hover:text-white transition-colors" aria-hidden="true"/>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+                    <Phone size={16} className="text-brand-orange" aria-hidden="true"/>
                   </div>
-                  <div>
-                    <p className="text-white/45 text-xs mb-1 uppercase tracking-wider">Phone</p>
-                    <p className="text-white text-sm font-semibold group-hover:text-brand-orange transition-colors">
+                  <div className="flex flex-col gap-1">
+                    <p className="text-white/45 text-xs mb-0.5 uppercase tracking-wider">Phone</p>
+                    <a href={CONTACT.phoneTel} className="text-white text-sm font-semibold hover:text-brand-orange transition-colors">
                       {CONTACT.phoneFormatted}
-                    </p>
+                    </a>
+                    <a href={CONTACT.phone2Tel} className="text-white text-sm font-semibold hover:text-brand-orange transition-colors">
+                      {CONTACT.phone2Formatted}
+                    </a>
                   </div>
-                </a>
+                </div>
 
                 <a href={CONTACT.emailHref} className="flex items-start gap-4 group">
                   <div className="w-10 h-10 bg-brand-orange/20 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-orange transition-colors duration-200">
@@ -415,7 +427,7 @@ export function Contact() {
         className="w-full"
       >
         <iframe
-          title="A N D Travel and Tours — Blk 10 Lot 6, Danarose Residences, Bacoor Cavite"
+          title="A N D Travel and Tours — Danarose Residences, Bacoor, Cavite"
           src={CONTACT.mapEmbed}
           width="100%"
           height="100%"

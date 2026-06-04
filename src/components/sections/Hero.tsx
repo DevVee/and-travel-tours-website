@@ -16,11 +16,11 @@ const FbIcon = () => (
 const slides: HeroSlide[] = [
   {
     id: 1,
-    imageUrl: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1600&q=90&auto=format&fit=crop',
-    location: 'Tokyo, Japan',
+    imageUrl: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1600&q=90&auto=format&fit=crop',
+    location: 'Mt. Fuji, Japan',
     headline: 'Discover the Magic',
     headline2: 'of Japan',
-    subCopy: 'Cherry blossoms, ancient temples and futuristic cities await you.',
+    subCopy: 'Mt. Fuji, cherry blossoms, ancient temples and futuristic cities await you.',
   },
   {
     id: 2,

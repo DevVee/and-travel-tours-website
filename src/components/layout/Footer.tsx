@@ -11,9 +11,9 @@ const quickLinks: Array<{ label: string; href: string }> = [
   { label: 'About Us',     href: '#about' },
   { label: 'Services',     href: '#packages' },
   { label: 'Destinations', href: '#destinations' },
+  { label: 'Credentials',  href: '#credentials' },
   { label: 'Packages',     href: '#packages' },
   { label: 'Contact',      href: '#contact' },
-  // Credentials removed until section is live — prevents broken anchor
 ]
 
 const serviceLinks: Array<{ label: string; href: string }> = [
@@ -26,8 +26,8 @@ const serviceLinks: Array<{ label: string; href: string }> = [
 ]
 
 const destinations = [
-  'Japan', 'South Korea', 'Singapore', 'Thailand', 'Hong Kong',
-  'Vietnam', 'Europe', 'Dubai', 'Maldives', 'Taiwan', 'Bali', 'Turkey',
+  'Japan', 'South Korea', 'Dubai', 'Argentina', 'USA',
+  'Schengen', 'China', 'Canada', 'United Kingdom', 'Australia',
   '& Many More…',
 ]
 
@@ -149,9 +149,14 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-white/60">
                   <Phone size={15} className="mt-0.5 shrink-0" aria-hidden="true" />
-                  <a href={CONTACT.phoneTel} className="text-sm hover:text-brand-orange transition-colors">
-                    {CONTACT.phoneFormatted}
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a href={CONTACT.phoneTel} className="text-sm hover:text-brand-orange transition-colors">
+                      {CONTACT.phoneFormatted}
+                    </a>
+                    <a href={CONTACT.phone2Tel} className="text-sm hover:text-brand-orange transition-colors">
+                      {CONTACT.phone2Formatted}
+                    </a>
+                  </div>
                 </div>
               </li>
               <li>

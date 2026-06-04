@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'About Us',     href: '#about',        sectionId: 'about' },
   { label: 'Services',     href: '#packages',     sectionId: 'packages' },
   { label: 'Destinations', href: '#destinations', sectionId: 'destinations' },
+  { label: 'Credentials',  href: '#credentials',  sectionId: 'credentials' },
 ]
 
 const SECTION_IDS = navLinks.map(l => l.sectionId)
@@ -53,6 +54,10 @@ export function Header() {
           <div className="flex items-center gap-3 sm:gap-4">
             <a href={CONTACT.phoneTel} className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
               <Phone size={11} aria-hidden="true" /><span>{CONTACT.phoneFormatted}</span>
+            </a>
+            <span className="text-white/20 hidden sm:inline">|</span>
+            <a href={CONTACT.phone2Tel} className="hidden sm:flex items-center gap-1.5 hover:text-brand-orange transition-colors">
+              <span>{CONTACT.phone2Formatted}</span>
             </a>
           </div>
           <div className="flex items-center gap-4">

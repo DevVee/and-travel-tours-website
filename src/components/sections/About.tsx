@@ -4,10 +4,10 @@ import { SectionHeader } from '@ui/SectionHeader'
 import { fadeUpVariants, fadeLeftVariants, fadeRightVariants, defaultViewport } from '@lib/animations'
 
 const collageImages = [
-  { src: 'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=400&q=80&auto=format&fit=crop', alt: 'Happy travelers', tall: true },
-  { src: 'https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=400&q=80&auto=format&fit=crop', alt: 'Travel destination', tall: false },
-  { src: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&q=80&auto=format&fit=crop', alt: 'Travel experience', tall: false },
-  { src: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&q=80&auto=format&fit=crop', alt: 'Road trip journey', tall: true },
+  { src: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=80&auto=format&fit=crop', alt: 'International travel', tall: true },
+  { src: 'https://images.unsplash.com/photo-1559827291-72304cead5bc?w=400&q=80&auto=format&fit=crop', alt: 'Boracay white beach', tall: false },
+  { src: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&q=80&auto=format&fit=crop', alt: 'Paris Eiffel Tower', tall: false },
+  { src: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&q=80&auto=format&fit=crop', alt: 'New York City skyline', tall: true },
 ]
 
 export function About() {

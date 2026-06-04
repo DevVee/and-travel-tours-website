@@ -10,6 +10,8 @@ export interface HeroSlide {
 export interface Destination {
   id: number
   name: string
+  /** ISO 3166-1 alpha-2 code used with flagcdn.com — 'eu' for Schengen */
+  flagCode: string
   imageUrl: string
   shortDesc: string
   badge?: string
