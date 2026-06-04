@@ -33,9 +33,7 @@ const credentials = [
     iconBg: 'bg-orange-50',
     iconColor: 'text-brand-orange',
     fields: [
-      { label: 'Account No.',  value: 'D-04812' },
-      { label: 'Plate No.',    value: '14477'   },
-      { label: 'Status',       value: 'NEW'     },
+      { label: 'Account No.', value: 'D-04812' },
     ],
   },
   {
