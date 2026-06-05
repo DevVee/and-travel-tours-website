@@ -40,11 +40,11 @@ const slides: HeroSlide[] = [
   },
   {
     id: 4,
-    imageUrl: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=1600&q=90&auto=format&fit=crop',
-    location: 'Seoul, South Korea',
-    headline: 'Feel the Energy',
-    headline2: 'of Korea',
-    subCopy: 'K-culture, palaces, and street food scenes that excite all senses.',
+    imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=90&auto=format&fit=crop',
+    location: 'Oslob, Cebu',
+    headline: 'Swim with',
+    headline2: 'Whale Sharks',
+    subCopy: 'One of the world\'s most breathtaking marine experiences, right here in the Philippines.',
   },
   {
     id: 5,
