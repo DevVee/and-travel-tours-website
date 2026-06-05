@@ -14,7 +14,7 @@ export const destinations: Destination[] = [
     id: 2,
     name: 'Cebu',
     flagCode: 'ph',
-    imageUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=85&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=85&auto=format&fit=crop',
     shortDesc: 'Swim with whale sharks in Oslob, explore Kawasan Falls & vibrant Sinulog culture.',
     badge: 'Must Visit',
     slug: 'cebu',

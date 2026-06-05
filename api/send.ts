@@ -1,9 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { Resend } from 'resend'
 
-const resend   = new Resend(process.env.RESEND_API_KEY)
+const resend    = new Resend(process.env.RESEND_API_KEY)
 const TO_EMAIL  = process.env.TO_EMAIL  ?? 'andtraveltours87@gmail.com'
 const FROM_ADDR = `A N D Travel <${process.env.FROM_EMAIL ?? 'inquiries@andtraveltours.xyz'}>`
+const LOGO_URL  = 'https://www.andtraveltours.xyz/logo.png'
+const SITE_URL  = 'https://www.andtraveltours.xyz'
 
 // ─── HTML builders ────────────────────────────────────────────────────────────
 type Payload = { name: string; phone: string; email: string; service: string; message: string; time: string }
@@ -27,9 +29,11 @@ function inboxHtml({ name, phone, email, service, message, time }: Payload) {
   <div style="max-width:600px;margin:32px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
     <!-- Header -->
-    <div style="background:#111111;padding:28px 32px;">
-      <p style="margin:0 0 4px;color:#F97316;font-size:18px;font-weight:700;letter-spacing:3px;">A N D TRAVEL</p>
-      <p style="margin:0;color:rgba(255,255,255,0.45);font-size:12px;text-transform:uppercase;letter-spacing:1px;">New Inquiry Notification</p>
+    <div style="background:#111111;padding:24px 32px;text-align:center;">
+      <a href="${SITE_URL}" style="display:inline-block;">
+        <img src="${LOGO_URL}" alt="A N D Travel and Tours" width="160" style="display:block;height:auto;max-width:160px;" />
+      </a>
+      <p style="margin:10px 0 0;color:rgba(255,255,255,0.45);font-size:11px;text-transform:uppercase;letter-spacing:2px;">New Inquiry Notification</p>
     </div>
 
     <!-- Service banner -->
@@ -93,9 +97,11 @@ function autoReplyHtml({ name, service }: Payload) {
   <div style="max-width:600px;margin:32px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
 
     <!-- Header -->
-    <div style="background:#111111;padding:36px 32px;text-align:center;">
-      <p style="margin:0 0 4px;color:#F97316;font-size:20px;font-weight:700;letter-spacing:3px;">A N D TRAVEL</p>
-      <p style="margin:0;color:rgba(255,255,255,0.45);font-size:12px;font-style:italic;">and Tours</p>
+    <div style="background:#111111;padding:28px 32px;text-align:center;">
+      <a href="${SITE_URL}" style="display:inline-block;">
+        <img src="${LOGO_URL}" alt="A N D Travel and Tours" width="160" style="display:block;height:auto;max-width:160px;margin:0 auto;" />
+      </a>
+      <p style="margin:10px 0 0;color:#D4A017;font-size:12px;font-style:italic;letter-spacing:1px;">Your Journey, Our Priority</p>
     </div>
 
     <!-- Hero message -->
