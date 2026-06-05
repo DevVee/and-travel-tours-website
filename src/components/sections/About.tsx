@@ -4,10 +4,10 @@ import { SectionHeader } from '@ui/SectionHeader'
 import { fadeUpVariants, fadeLeftVariants, fadeRightVariants, defaultViewport } from '@lib/animations'
 
 const collageImages = [
-  { src: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&q=80&auto=format&fit=crop', alt: 'International travel', tall: true },
-  { src: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80&auto=format&fit=crop', alt: 'Boracay white beach', tall: false },
-  { src: 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&q=80&auto=format&fit=crop', alt: 'Paris Eiffel Tower', tall: false },
-  { src: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&q=80&auto=format&fit=crop', alt: 'New York City skyline', tall: true },
+  { src: 'https://images.unsplash.com/photo-1635686692794-b0ce6337386b?w=400&q=80&auto=format&fit=crop', alt: 'N Seoul Tower, South Korea' },
+  { src: 'https://images.unsplash.com/photo-1495031451303-d8ab59c8df37?w=400&q=80&auto=format&fit=crop', alt: 'Boracay paraw sailboats, Philippines' },
+  { src: 'https://images.unsplash.com/photo-1566902145833-0475c9f1a1bf?w=400&q=80&auto=format&fit=crop', alt: 'Eiffel Tower from Trocadéro, Paris' },
+  { src: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400&q=80&auto=format&fit=crop', alt: 'Statue of Liberty, USA' },
 ]
 
 export function About() {
@@ -25,7 +25,7 @@ export function About() {
             className="grid grid-cols-2 gap-3"
           >
             {collageImages.map((img, i) => (
-              <div key={i} className={`overflow-hidden rounded-2xl ${img.tall ? 'aspect-[4/5]' : 'aspect-square'}`}>
+              <div key={i} className="aspect-[4/3] overflow-hidden rounded-2xl">
                 <img
                   src={img.src}
                   alt={img.alt}

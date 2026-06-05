@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion'
-import { BadgeCheck, ShieldCheck } from 'lucide-react'
+import { BadgeCheck, CreditCard, ShieldCheck } from 'lucide-react'
 import { AnimatedSection } from '@ui/AnimatedSection'
 import { SectionHeader } from '@ui/SectionHeader'
 import { cardVariants, staggerContainer, defaultViewport, fadeUpVariants } from '@lib/animations'
+
+// ── Payment methods ───────────────────────────────────────────────────────────
+const paymentMethods = [
+  { name: 'BDO',       logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BDO_Unibank_%28logo%29.svg/250px-BDO_Unibank_%28logo%29.svg.png' },
+  { name: 'BPI',       logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Bank_of_the_Philippine_Islands_logo.svg/250px-Bank_of_the_Philippine_Islands_logo.svg.png' },
+  { name: 'MetroBank', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Metropolitan_Bank_and_Trust_Company.svg/250px-Metropolitan_Bank_and_Trust_Company.svg.png' },
+  { name: 'GCash',     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/GCash_logo.svg/250px-GCash_logo.svg.png' },
+  { name: 'Maya',      logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Maya_logo.svg/250px-Maya_logo.svg.png' },
+]
 
 // ── Registration data ─────────────────────────────────────────────────────────
 const credentials = [
@@ -154,6 +163,50 @@ export function Credentials() {
           >
             Verify on Facebook
           </a>
+        </motion.div>
+
+        {/* ── Payment Methods ───────────────────────────────────────────────── */}
+        <motion.div
+          variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={defaultViewport}
+          className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-8"
+        >
+          <div className="flex flex-col items-center gap-5 text-center">
+
+            {/* Header */}
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center">
+                <CreditCard size={24} className="text-brand-orange" aria-hidden="true" />
+              </div>
+              <h3 className="font-bold text-brand-black text-lg font-heading">
+                Bank Transfer Accepted
+              </h3>
+              <p className="text-gray-500 text-sm">Pay securely via any of the following methods</p>
+            </div>
+
+            {/* Divider */}
+            <div className="w-20 h-px bg-gray-200" />
+
+            {/* Payment logos */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {paymentMethods.map(method => (
+                <div
+                  key={method.name}
+                  className="bg-white rounded-xl border border-gray-200 shadow-sm flex items-center justify-center px-6 py-3"
+                  style={{ minWidth: '130px', height: '60px' }}
+                >
+                  <img
+                    src={method.logoUrl}
+                    alt={method.name}
+                    className="h-8 w-auto object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+
+          </div>
         </motion.div>
 
       </div>
