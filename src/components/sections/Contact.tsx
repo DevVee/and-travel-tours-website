@@ -192,13 +192,12 @@ function TourPackageForm() {
         <Fld label="Tour Package" id="pkg" error={err.pkg}>
           <select id="pkg" value={f.pkg} onChange={e => u('pkg', e.target.value)} className={ic(!!err.pkg) + ' cursor-pointer'}>
             <option value="">Select a package…</option>
-            <option value="Japan Cherry Blossom Tour">Japan Cherry Blossom Tour</option>
-            <option value="South Korea K-Experience">South Korea K-Experience</option>
-            <option value="Singapore & Malaysia Combo">Singapore &amp; Malaysia Combo</option>
-            <option value="Thailand Grand Tour">Thailand Grand Tour</option>
-            <option value="Dubai Luxury Experience">Dubai Luxury Experience</option>
-            <option value="Vietnam Heritage Tour">Vietnam Heritage Tour</option>
-            <option value="Other / Custom Package">Other / Custom Package</option>
+            <option value="Roundtrip airfare">Roundtrip airfare</option>
+            <option value="Hotel accommodation">Hotel accommodation</option>
+            <option value="Airport transfers">Airport transfers</option>
+            <option value="Tours and sightseeing">Tours and sightseeing</option>
+            <option value="Travel insurance (if applicable)">Travel insurance (if applicable)</option>
+            <option value="Meals (depending on the package)">Meals (depending on the package)</option>
           </select>
         </Fld>
       </div>

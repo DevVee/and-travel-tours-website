@@ -6,8 +6,8 @@ import { fadeUpVariants, fadeLeftVariants, fadeRightVariants, defaultViewport } 
 const collageImages = [
   { src: 'https://images.unsplash.com/photo-1576647025587-2b77cd953cba?w=400&q=80&auto=format&fit=crop', alt: 'Whale shark swimming with snorkeler, Oslob, Cebu' },
   { src: 'https://images.unsplash.com/photo-1495031451303-d8ab59c8df37?w=400&q=80&auto=format&fit=crop', alt: 'Boracay paraw sailboats, Philippines' },
-  { src: 'https://images.unsplash.com/photo-1566902145833-0475c9f1a1bf?w=400&q=80&auto=format&fit=crop', alt: 'Eiffel Tower from Trocadéro, Paris' },
-  { src: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400&q=80&auto=format&fit=crop', alt: 'Statue of Liberty, USA' },
+  { src: 'https://images.unsplash.com/photo-1664602078796-68ee76b3fc59?w=400&q=80&auto=format&fit=crop', alt: 'Registan Square ancient architecture, Samarkand, Uzbekistan' },
+  { src: 'https://images.unsplash.com/photo-1684453728339-aa45743ab516?w=400&q=80&auto=format&fit=crop', alt: 'Bayterek Tower in Astana, Kazakhstan' },
 ]
 
 export function About() {
@@ -53,8 +53,12 @@ export function About() {
               A N D Travel and Tours is a duly registered travel agency based in Bacoor, Cavite, Philippines, committed to providing reliable, affordable, and customer-focused travel solutions. We specialize in domestic and international travel arrangements, helping individuals, families, groups, and corporate clients experience seamless and memorable journeys.
             </motion.p>
 
-            <motion.p variants={fadeUpVariants} className="text-gray-600 text-base leading-relaxed mb-8">
+            <motion.p variants={fadeUpVariants} className="text-gray-600 text-base leading-relaxed mb-4">
               Our goal is to make travel planning convenient and stress-free through professional assistance, personalized service, and carefully curated travel packages. Whether for leisure, business, educational tours, or group travel, A N D Travel and Tours is dedicated to delivering quality travel experiences that exceed expectations.
+            </motion.p>
+
+            <motion.p variants={fadeUpVariants} className="text-gray-600 text-base leading-relaxed mb-8">
+              We also specialize in emerging visa-free destinations for Filipino passport holders — <span className="font-semibold text-brand-orange">Kazakhstan</span>, <span className="font-semibold text-brand-orange">Kyrgyzstan</span>, <span className="font-semibold text-brand-orange">Tajikistan</span>, <span className="font-semibold text-brand-orange">Turkmenistan</span>, and <span className="font-semibold text-brand-orange">Uzbekistan</span> — giving you access to breathtaking Central Asian landscapes, Silk Road heritage, and unforgettable adventures without the hassle of visa applications.
             </motion.p>
 
             <motion.div variants={fadeUpVariants} className="flex flex-wrap gap-3">
