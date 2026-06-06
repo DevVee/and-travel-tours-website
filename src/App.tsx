@@ -7,6 +7,7 @@ import { MissionVision } from '@sections/MissionVision'
 import { WhyChooseUs }   from '@sections/WhyChooseUs'
 import { ServicesVisual }from '@sections/ServicesVisual'
 import { Destinations }  from '@sections/Destinations'
+import { FAQ }           from '@sections/FAQ'
 import { Credentials }   from '@sections/Credentials'
 import { Contact }       from '@sections/Contact'
 
@@ -37,6 +38,7 @@ function App() {
           <WhyChooseUs />
           <ServicesVisual />
           <Destinations />
+          <FAQ />
           <Credentials />
           <Contact />
         </main>

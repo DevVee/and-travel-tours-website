@@ -40,7 +40,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 4,
-    imageUrl: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1600&q=90&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1576647025587-2b77cd953cba?w=1600&q=90&auto=format&fit=crop',
     location: 'Oslob, Cebu',
     headline: 'Swim with',
     headline2: 'Whale Sharks',

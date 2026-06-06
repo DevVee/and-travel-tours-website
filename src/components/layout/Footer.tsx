@@ -1,6 +1,10 @@
+import { useState }                                                from 'react'
+import { AnimatePresence }                                        from 'framer-motion'
 import { Phone, Mail, MapPin, Share2, MessageCircle, ArrowRight } from 'lucide-react'
-import { BrandLogo } from '@ui/BrandLogo'
-import { CONTACT }   from '@data/contact'
+import { BrandLogo }   from '@ui/BrandLogo'
+import { LegalModal }  from '@ui/LegalModal'
+import type { LegalType } from '@ui/LegalModal'
+import { CONTACT }     from '@data/contact'
 
 /**
  * FIX H-04: Explicit href map — replaces the broken `.replace(' ', '-')` approach
@@ -11,6 +15,7 @@ const quickLinks: Array<{ label: string; href: string }> = [
   { label: 'About Us',     href: '#about' },
   { label: 'Services',     href: '#packages' },
   { label: 'Destinations', href: '#destinations' },
+  { label: 'FAQ',          href: '#faq' },
   { label: 'Credentials',  href: '#credentials' },
   { label: 'Packages',     href: '#packages' },
   { label: 'Contact',      href: '#contact' },
@@ -32,8 +37,15 @@ const destinations = [
 ]
 
 export function Footer() {
+  const [legal, setLegal] = useState<LegalType | null>(null)
+
   return (
     <footer className="bg-brand-black text-white">
+
+      {/* Legal modals */}
+      <AnimatePresence>
+        {legal && <LegalModal type={legal} onClose={() => setLegal(null)} />}
+      </AnimatePresence>
 
       {/* CTA Band */}
       <div className="bg-gradient-orange py-12">
@@ -192,7 +204,23 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <span>© {new Date().getFullYear()} A N D Travel and Tours. All Rights Reserved.</span>
-          <span className="text-brand-gold italic font-medium">Your Journey, Our Priority</span>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setLegal('terms')}
+              className="hover:text-brand-orange transition-colors underline underline-offset-2"
+            >
+              Terms &amp; Conditions
+            </button>
+            <span aria-hidden="true">·</span>
+            <button
+              onClick={() => setLegal('booking')}
+              className="hover:text-brand-orange transition-colors underline underline-offset-2"
+            >
+              Booking Policy
+            </button>
+            <span aria-hidden="true" className="hidden sm:inline">·</span>
+            <span className="hidden sm:inline text-brand-gold italic font-medium">Your Journey, Our Priority</span>
+          </div>
         </div>
       </div>
 

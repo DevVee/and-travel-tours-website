@@ -4,7 +4,7 @@ import { SectionHeader } from '@ui/SectionHeader'
 import { fadeUpVariants, fadeLeftVariants, fadeRightVariants, defaultViewport } from '@lib/animations'
 
 const collageImages = [
-  { src: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400&q=80&auto=format&fit=crop', alt: 'Whale shark swimming, Oslob, Cebu' },
+  { src: 'https://images.unsplash.com/photo-1576647025587-2b77cd953cba?w=400&q=80&auto=format&fit=crop', alt: 'Whale shark swimming with snorkeler, Oslob, Cebu' },
   { src: 'https://images.unsplash.com/photo-1495031451303-d8ab59c8df37?w=400&q=80&auto=format&fit=crop', alt: 'Boracay paraw sailboats, Philippines' },
   { src: 'https://images.unsplash.com/photo-1566902145833-0475c9f1a1bf?w=400&q=80&auto=format&fit=crop', alt: 'Eiffel Tower from Trocadéro, Paris' },
   { src: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=400&q=80&auto=format&fit=crop', alt: 'Statue of Liberty, USA' },

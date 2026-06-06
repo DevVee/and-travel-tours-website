@@ -10,7 +10,7 @@ export const packages: Package[] = [
     days: 7,
     price: 45000,
     originalPrice: 52000,
-    includes: ['Round-trip airfare', '6 nights hotel', 'Daily breakfast', 'Tokyo & Kyoto tours', 'Bullet train pass'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
     badge: 'Best Value',
   },
   {
@@ -21,7 +21,7 @@ export const packages: Package[] = [
     nights: 5,
     days: 6,
     price: 38000,
-    includes: ['Round-trip airfare', '5 nights hotel', 'Nami Island tour', 'N Seoul Tower', 'K-culture experience'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
     badge: 'Most Popular',
   },
   {
@@ -33,7 +33,7 @@ export const packages: Package[] = [
     days: 7,
     price: 35000,
     originalPrice: 40000,
-    includes: ['Round-trip airfare', 'Hotel accommodations', 'Gardens by the Bay', 'KL City tour', 'Twin Towers visit'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
     badge: 'Best Value',
   },
   {
@@ -44,7 +44,7 @@ export const packages: Package[] = [
     nights: 5,
     days: 6,
     price: 28000,
-    includes: ['Round-trip airfare', '5 nights hotel', 'Bangkok city tour', 'Pattaya day trip', 'Coral Island tour'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ export const packages: Package[] = [
     nights: 5,
     days: 6,
     price: 58000,
-    includes: ['Round-trip airfare', '5-star hotel', 'Desert safari', 'Burj Khalifa entry', 'Dubai Mall visit'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
     badge: 'Premium',
   },
   {
@@ -65,6 +65,6 @@ export const packages: Package[] = [
     nights: 6,
     days: 7,
     price: 32000,
-    includes: ['Round-trip airfare', '6 nights hotel', 'Ha Long Bay cruise', 'Hoi An old town', 'Local food tour'],
+    includes: ['Roundtrip airfare', 'Hotel accommodation', 'Airport transfers', 'Tours and sightseeing', 'Travel insurance (if applicable)', 'Meals (depending on the package)'],
   },
 ]

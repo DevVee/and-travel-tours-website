@@ -10,7 +10,6 @@ import { SectionHeader }  from '@ui/SectionHeader'
 import { BrandLogo }      from '@ui/BrandLogo'
 import { LocalQRCode }    from '@ui/LocalQRCode'
 import { CONTACT }        from '@data/contact'
-import { packages as tourPackages } from '@data/packages'
 import {
   fadeLeftVariants, fadeRightVariants,
   fadeUpVariants, staggerContainer, cardVariants, defaultViewport,
@@ -20,9 +19,6 @@ import {
 const INT_DESTS = [
   'Hong Kong', 'Vietnam', 'China', 'Europe (Schengen)',
   'Japan', 'Thailand', 'South Korea', 'Dubai',
-]
-const DOM_DESTS = [
-  'Boracay', 'El Nido', 'Puerto Prinsesa', 'Bohol', 'Cebu', 'Batanes',
 ]
 const GENERAL_SERVICES = [
   'Hotel Reservations', 'Group & Corporate Travel', 'Other / Not Sure Yet',
@@ -160,7 +156,7 @@ function TourPackageForm() {
 
   function validate() {
     const e: Record<string, string> = {}
-    if (!f.pkg)          e.pkg   = 'Please select a package'
+    if (!f.pkg)          e.pkg   = 'Please select a package type'
     if (!f.pax)          e.pax   = 'Number of pax is required'
     if (!f.name.trim())  e.name  = 'Full name is required'
     if (!f.phone.trim()) e.phone = 'Phone number is required'
@@ -193,10 +189,16 @@ function TourPackageForm() {
   return (
     <form onSubmit={submit} noValidate className="grid sm:grid-cols-2 gap-4">
       <div className="sm:col-span-2">
-        <Fld label="What tour package are you interested in?" id="pkg" error={err.pkg}>
+        <Fld label="Tour Package" id="pkg" error={err.pkg}>
           <select id="pkg" value={f.pkg} onChange={e => u('pkg', e.target.value)} className={ic(!!err.pkg) + ' cursor-pointer'}>
             <option value="">Select a package…</option>
-            {tourPackages.map(p => <option key={p.id} value={p.title}>{p.title}</option>)}
+            <option value="Japan Cherry Blossom Tour">Japan Cherry Blossom Tour</option>
+            <option value="South Korea K-Experience">South Korea K-Experience</option>
+            <option value="Singapore & Malaysia Combo">Singapore &amp; Malaysia Combo</option>
+            <option value="Thailand Grand Tour">Thailand Grand Tour</option>
+            <option value="Dubai Luxury Experience">Dubai Luxury Experience</option>
+            <option value="Vietnam Heritage Tour">Vietnam Heritage Tour</option>
+            <option value="Other / Custom Package">Other / Custom Package</option>
           </select>
         </Fld>
       </div>
