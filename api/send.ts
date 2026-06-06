@@ -3,9 +3,9 @@ import { Resend } from 'resend'
 
 const resend    = new Resend(process.env.RESEND_API_KEY)
 const TO_EMAIL  = process.env.TO_EMAIL  ?? 'andtraveltours87@gmail.com'
-const FROM_ADDR = `A N D Travel <${process.env.FROM_EMAIL ?? 'inquiries@andtraveltours.xyz'}>`
-const LOGO_URL  = 'https://www.andtraveltours.xyz/logo.png'
-const SITE_URL  = 'https://www.andtraveltours.xyz'
+const FROM_ADDR = `A N D Travel <${process.env.FROM_EMAIL ?? 'inquiries@andtraveltours.com'}>`
+const LOGO_URL  = 'https://www.andtraveltours.com/logo.png'
+const SITE_URL  = 'https://www.andtraveltours.com'
 
 // ─── HTML builders ────────────────────────────────────────────────────────────
 type Payload = { name: string; phone: string; email: string; service: string; message: string; time: string }
