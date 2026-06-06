@@ -299,9 +299,6 @@ function VisaForm() {
           <optgroup label="International">
             {INT_DESTS.map(d => <option key={d} value={d}>{d}</option>)}
           </optgroup>
-          <optgroup label="Domestic">
-            {DOM_DESTS.map(d => <option key={d} value={d}>{d}</option>)}
-          </optgroup>
           <optgroup label="Other">
             <option value="Others">Others</option>
           </optgroup>

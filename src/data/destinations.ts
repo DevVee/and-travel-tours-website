@@ -12,12 +12,12 @@ export const destinations: Destination[] = [
   },
   {
     id: 2,
-    name: 'Cebu',
-    flagCode: 'ph',
-    imageUrl: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&q=85&auto=format&fit=crop',
-    shortDesc: 'Swim with whale sharks in Oslob, explore Kawasan Falls & vibrant Sinulog culture.',
-    badge: 'Must Visit',
-    slug: 'cebu',
+    name: 'South Korea',
+    flagCode: 'kr',
+    imageUrl: 'https://images.unsplash.com/photo-1635686692794-b0ce6337386b?w=800&q=85&auto=format&fit=crop',
+    shortDesc: 'K-culture, N Seoul Tower, palaces & vibrant street food scenes.',
+    badge: 'Trending',
+    slug: 'south-korea',
   },
   {
     id: 3,
