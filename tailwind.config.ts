@@ -26,11 +26,16 @@ const config: Config = {
         'gradient-hero':   'linear-gradient(135deg, rgba(17,17,17,0.72) 0%, rgba(17,17,17,0.28) 100%)',
       },
       boxShadow: {
-        'card':    '0 4px 24px rgba(0,0,0,0.08)',
-        'card-lg': '0 8px 40px rgba(0,0,0,0.14)',
-        'orange':  '0 8px 32px rgba(249,115,22,0.38)',
-        'gold':    '0 8px 32px rgba(212,160,23,0.32)',
-        'inset-orange': 'inset 0 0 0 2px #F97316',
+        'card':        '0 4px 24px rgba(0,0,0,0.08)',
+        'card-lg':     '0 8px 40px rgba(0,0,0,0.14)',
+        'orange':      '0 8px 32px rgba(249,115,22,0.38)',
+        'gold':        '0 8px 32px rgba(212,160,23,0.32)',
+        'inset-orange':'inset 0 0 0 2px #F97316',
+        // Admin-specific shadows
+        'admin-card':  '0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04)',
+        'admin-modal': '0 20px 60px rgba(0,0,0,0.18)',
+        'admin-popover':'0 8px 32px rgba(0,0,0,0.12)',
+        'sidebar':     '2px 0 16px rgba(0,0,0,0.08)',
       },
       animation: {
         'ken-burns': 'kenBurns 10s ease-in-out infinite',

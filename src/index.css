@@ -65,6 +65,28 @@
   }
 }
 
+/* ── Admin root: override decorative heading font with Inter ─────────────
+   Playfair Display is beautiful for the public marketing site but
+   inappropriate for an 8-hour-a-day internal tool. Within .admin-root,
+   all headings snap back to Inter for maximum legibility and density.
+──────────────────────────────────────────────────────────────────────────── */
+.admin-root h1,
+.admin-root h2,
+.admin-root h3,
+.admin-root h4,
+.admin-root h5,
+.admin-root h6,
+.admin-root .font-heading {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Raise the baseline text color inside admin to near-black — no more
+   washed-out gray paragraphs. Individual components still override via
+   Tailwind utilities when they need lighter secondarytext. */
+.admin-root {
+  color: #111827;
+}
+
 @layer utilities {
   .text-gradient-orange {
     background: linear-gradient(135deg, #F97316 0%, #D4A017 100%);

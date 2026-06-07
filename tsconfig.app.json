@@ -19,14 +19,23 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*":           ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@sections/*":   ["./src/components/sections/*"],
-      "@ui/*":         ["./src/components/ui/*"],
-      "@layout/*":     ["./src/components/layout/*"],
-      "@hooks/*":      ["./src/hooks/*"],
-      "@lib/*":        ["./src/lib/*"],
-      "@data/*":       ["./src/data/*"]
+      "@/*":              ["./src/*"],
+      "@components/*":    ["./src/components/*"],
+      "@sections/*":      ["./src/components/sections/*"],
+      "@ui/*":            ["./src/components/ui/*"],
+      "@layout/*":        ["./src/components/layout/*"],
+      "@hooks/*":         ["./src/hooks/*"],
+      "@lib/*":           ["./src/lib/*"],
+      "@data/*":          ["./src/data/*"],
+      "@admin/*":         ["./src/admin/*"],
+      "@admin-ui/*":      ["./src/admin/components/ui/*"],
+      "@admin-forms/*":   ["./src/admin/components/forms/*"],
+      "@admin-layout/*":  ["./src/admin/components/layout/*"],
+      "@admin-features/*":["./src/admin/features/*"],
+      "@admin-hooks/*":   ["./src/admin/hooks/*"],
+      "@admin-data/*":    ["./src/admin/data/*"],
+      "@admin-types/*":   ["./src/admin/types/*"],
+      "@admin-lib/*":     ["./src/admin/lib/*"]
     }
   },
   "include": ["src"]
