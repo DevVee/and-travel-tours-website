@@ -10,6 +10,7 @@ import { Destinations }  from '@sections/Destinations'
 import { FAQ }           from '@sections/FAQ'
 import { Credentials }   from '@sections/Credentials'
 import { Contact }       from '@sections/Contact'
+import { Policies }      from '@sections/Policies'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <FAQ />
           <Credentials />
           <Contact />
+          <Policies />
         </main>
 
         <Footer />

@@ -29,12 +29,12 @@ export const destinations: Destination[] = [
   },
   {
     id: 4,
-    name: 'Kazakhstan',
-    flagCode: 'kz',
-    imageUrl: 'https://images.unsplash.com/photo-1677842296338-eeb8c866d22c?w=800&q=85&auto=format&fit=crop',
-    shortDesc: 'Astana\'s futuristic skyline, sweeping steppes & rich nomadic heritage.',
-    badge: 'Visa-Free 🇵🇭',
-    slug: 'kazakhstan',
+    name: 'Boracay',
+    flagCode: 'ph',
+    imageUrl: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=85&auto=format&fit=crop',
+    shortDesc: 'World-famous White Beach, crystal waters & stunning island sunsets.',
+    badge: '🇵🇭 Island Paradise',
+    slug: 'boracay',
   },
   {
     id: 5,
