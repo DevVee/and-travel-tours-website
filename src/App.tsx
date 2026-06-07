@@ -1,7 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
-
-// ─── Public Site ──────────────────────────────────────────────────────────
 import { Header }        from '@layout/Header'
 import { Footer }        from '@layout/Footer'
 import { Hero }          from '@sections/Hero'
@@ -13,33 +10,6 @@ import { Destinations }  from '@sections/Destinations'
 import { FAQ }           from '@sections/FAQ'
 import { Credentials }   from '@sections/Credentials'
 import { Contact }       from '@sections/Contact'
-
-// ─── Management System ────────────────────────────────────────────────────
-import { AdminRouter } from '@admin/AdminRouter'
-
-// ─── Public Homepage ──────────────────────────────────────────────────────
-
-function PublicSite() {
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main id="main-content">
-        <Hero />
-        <About />
-        <MissionVision />
-        <WhyChooseUs />
-        <ServicesVisual />
-        <Destinations />
-        <FAQ />
-        <Credentials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  )
-}
-
-// ─── App Root ─────────────────────────────────────────────────────────────
 
 function App() {
   return (
@@ -58,14 +28,23 @@ function App() {
         Skip to main content
       </a>
 
-      <Routes>
-        {/* ── Admin Management System ── */}
-        <Route path="/admin/*" element={<AdminRouter />} />
+      <div className="min-h-screen bg-white">
+        <Header />
 
-        {/* ── Public website — default root ── */}
-        <Route path="/*" element={<PublicSite />} />
-      </Routes>
+        <main id="main-content">
+          <Hero />
+          <About />
+          <MissionVision />
+          <WhyChooseUs />
+          <ServicesVisual />
+          <Destinations />
+          <FAQ />
+          <Credentials />
+          <Contact />
+        </main>
 
+        <Footer />
+      </div>
     </MotionConfig>
   )
 }
