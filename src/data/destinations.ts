@@ -37,6 +37,15 @@ export const destinations: Destination[] = [
     slug: 'boracay',
   },
   {
+    id: 11,
+    name: 'Almaty Lake',
+    flagCode: 'kz',
+    imageUrl: 'https://images.unsplash.com/photo-1543166987-85e4689dfe82?w=800&q=85&auto=format&fit=crop',
+    shortDesc: 'Breathtaking alpine lake nestled in the mountains above Almaty, Kazakhstan.',
+    badge: 'Visa-Free 🇵🇭',
+    slug: 'almaty-lake',
+  },
+  {
     id: 5,
     name: 'Kyrgyzstan',
     flagCode: 'kg',
@@ -61,15 +70,6 @@ export const destinations: Destination[] = [
     imageUrl: 'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=85&auto=format&fit=crop',
     shortDesc: 'Great Wall, Forbidden City, Shanghai skyline & ancient wonders.',
     slug: 'china',
-  },
-  {
-    id: 8,
-    name: 'Tajikistan',
-    flagCode: 'tj',
-    imageUrl: 'https://images.unsplash.com/photo-1585649501442-2eaa27c531f2?w=800&q=85&auto=format&fit=crop',
-    shortDesc: 'Pamir Highway, Iskanderkul lake & dramatic mountain landscapes.',
-    badge: 'Visa-Free 🇵🇭',
-    slug: 'tajikistan',
   },
   {
     id: 9,

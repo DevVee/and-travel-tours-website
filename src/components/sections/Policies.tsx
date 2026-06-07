@@ -10,15 +10,6 @@ import {
   fadeUpVariants, defaultViewport,
 } from '@lib/animations'
 
-// ─── Payment methods ──────────────────────────────────────────────────────────
-const paymentMethods = [
-  { name: 'BDO',       logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/BDO_Unibank_%28logo%29.svg/250px-BDO_Unibank_%28logo%29.svg.png' },
-  { name: 'BPI',       logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Bank_of_the_Philippine_Islands_logo.svg/250px-Bank_of_the_Philippine_Islands_logo.svg.png' },
-  { name: 'MetroBank', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Metropolitan_Bank_and_Trust_Company.svg/250px-Metropolitan_Bank_and_Trust_Company.svg.png' },
-  { name: 'GCash',     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/GCash_logo.svg/250px-GCash_logo.svg.png' },
-  { name: 'Maya',      logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Maya_logo.svg/250px-Maya_logo.svg.png' },
-]
-
 // ─── Policy highlight bullets shown in each card ──────────────────────────────
 const TERMS_HIGHLIGHTS = [
   'All bookings are confirmed only upon receipt of required payment.',
@@ -138,47 +129,9 @@ export function Policies() {
 
         <SectionHeader
           eyebrow="Transparency First"
-          title="Policies & Payment Methods"
+          title="Terms & Policies"
           subtitle="We believe in clear, honest communication. Review our terms before you book."
         />
-
-        {/* ── Payment logos ─────────────────────────────────────────────────── */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
-          className="mb-12"
-        >
-          <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">
-            We Accept
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {paymentMethods.map(method => (
-              <div
-                key={method.name}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm flex items-center justify-center px-6 py-3 hover:shadow-card transition-shadow"
-              >
-                <img
-                  src={method.logoUrl}
-                  alt={method.name}
-                  className="h-8 w-auto object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* ── Divider ───────────────────────────────────────────────────────── */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="flex-1 h-px bg-gray-100" />
-          <div className="flex items-center gap-2 px-4 py-1.5 bg-orange-50 rounded-full border border-brand-orange/15">
-            <ShieldCheck size={14} className="text-brand-orange" aria-hidden="true" />
-            <span className="text-brand-orange text-xs font-semibold">Our Policies</span>
-          </div>
-          <div className="flex-1 h-px bg-gray-100" />
-        </div>
 
         {/* ── Policy cards ──────────────────────────────────────────────────── */}
         <motion.div

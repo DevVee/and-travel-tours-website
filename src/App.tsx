@@ -41,8 +41,8 @@ function App() {
           <Destinations />
           <FAQ />
           <Credentials />
-          <Contact />
           <Policies />
+          <Contact />
         </main>
 
         <Footer />
