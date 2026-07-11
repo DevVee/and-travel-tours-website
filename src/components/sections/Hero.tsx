@@ -16,6 +16,22 @@ const FbIcon = () => (
 const slides: HeroSlide[] = [
   {
     id: 1,
+    imageUrl: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1600&q=90&auto=format&fit=crop',
+    location: 'Tokyo, Japan',
+    headline: 'Experience the Magic of',
+    headline2: 'Japan',
+    subCopy: 'Cherry blossoms, Mt. Fuji, ancient temples & futuristic cities — an unforgettable journey awaits.',
+  },
+  {
+    id: 2,
+    imageUrl: 'https://images.unsplash.com/photo-1758384077399-2757a1de8b75?w=1600&q=90&auto=format&fit=crop',
+    location: 'Seoul, South Korea',
+    headline: 'Explore the Wonders of',
+    headline2: 'South Korea',
+    subCopy: 'K-culture, N Seoul Tower, historic palaces & vibrant street food scenes await.',
+  },
+  {
+    id: 3,
     imageUrl: 'https://images.unsplash.com/photo-1677842296338-eeb8c866d22c?w=1600&q=90&auto=format&fit=crop',
     location: 'Astana, Kazakhstan',
     headline: 'Discover the Heart of',
@@ -23,7 +39,7 @@ const slides: HeroSlide[] = [
     subCopy: 'Visa-free for Filipino passport holders 🇵🇭 — futuristic skylines, sweeping steppes & rich nomadic heritage.',
   },
   {
-    id: 2,
+    id: 4,
     imageUrl: 'https://images.unsplash.com/photo-1551189783-e226306fd8a1?w=1600&q=90&auto=format&fit=crop',
     location: 'Lake Issyk-Kul, Kyrgyzstan',
     headline: 'Escape to the Mountains',
@@ -31,7 +47,7 @@ const slides: HeroSlide[] = [
     subCopy: 'No visa required for Filipino passport holders 🇵🇭 — crystal-clear alpine lakes, dramatic peaks & Silk Road trails.',
   },
   {
-    id: 3,
+    id: 5,
     imageUrl: 'https://images.unsplash.com/photo-1585649501442-2eaa27c531f2?w=1600&q=90&auto=format&fit=crop',
     location: 'Pamir Mountains, Tajikistan',
     headline: 'Conquer the Roof of',
@@ -39,7 +55,7 @@ const slides: HeroSlide[] = [
     subCopy: 'Visa-free for Filipino passport holders 🇵🇭 — drive the legendary Pamir Highway, trek glaciers & discover ancient wonders.',
   },
   {
-    id: 4,
+    id: 6,
     imageUrl: 'https://images.unsplash.com/photo-1448772917253-74bbbe249b30?w=1600&q=90&auto=format&fit=crop',
     location: 'Darvaza, Turkmenistan',
     headline: 'Witness the Wonders of',
@@ -47,7 +63,7 @@ const slides: HeroSlide[] = [
     subCopy: 'Visa-free for Filipino passport holders 🇵🇭 — the blazing Darvaza crater, marble Ashgabat & ancient Merv ruins await.',
   },
   {
-    id: 5,
+    id: 7,
     imageUrl: 'https://images.unsplash.com/photo-1664602078796-68ee76b3fc59?w=1600&q=90&auto=format&fit=crop',
     location: 'Samarkand, Uzbekistan',
     headline: 'Walk the Ancient',
