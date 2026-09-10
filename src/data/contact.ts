@@ -4,9 +4,9 @@
  */
 export const CONTACT = {
   // ── Phone ─────────────────────────────────────────────────────────────────
-  phone:          '09159234547',
-  phoneFormatted: '0915 923 4547',
-  phoneTel:       'tel:09159234547',
+  phone:          '09082533234',
+  phoneFormatted: '0908 253 3234',
+  phoneTel:       'tel:09082533234',
 
   phone2:          '09319556850',
   phone2Formatted: '0931 955 6850',
@@ -17,9 +17,9 @@ export const CONTACT = {
   emailHref: 'mailto:andtraveltours87@gmail.com',
 
   // ── Address ───────────────────────────────────────────────────────────────
-  // Blk 10 Lot 6 kept only for map embed; not shown on page per client request
-  address:      'Danarose Residences,\nBacoor, Cavite, Philippines',
-  addressShort: 'Danarose Residences, Bacoor, Cavite',
+  // Street/subdivision kept only in the map embed; not shown on page per client request
+  address:      'Bacoor, Cavite, Philippines',
+  addressShort: 'Bacoor, Cavite',
 
   // ── Social ────────────────────────────────────────────────────────────────
   facebook:  'https://www.facebook.com/profile.php?id=61590018405492',

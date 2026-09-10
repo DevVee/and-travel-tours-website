@@ -219,7 +219,7 @@ function TourPackageForm() {
         <input id="name" type="text" placeholder="e.g. Maria Santos" autoComplete="name" value={f.name} onChange={e => u('name', e.target.value)} className={ic(!!err.name)} />
       </Fld>
       <Fld label="Mobile Number" id="phone" error={err.phone}>
-        <input id="phone" type="tel" placeholder="e.g. 09159234547" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
+        <input id="phone" type="tel" placeholder="e.g. 09082533234" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
       </Fld>
 
       <div className="sm:col-span-2">
@@ -316,7 +316,7 @@ function VisaForm() {
         <input id="name" type="text" placeholder="e.g. Maria Santos" autoComplete="name" value={f.name} onChange={e => u('name', e.target.value)} className={ic(!!err.name)} />
       </Fld>
       <Fld label="Mobile Number" id="phone" error={err.phone}>
-        <input id="phone" type="tel" placeholder="e.g. 09159234547" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
+        <input id="phone" type="tel" placeholder="e.g. 09082533234" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
       </Fld>
 
       <div className="sm:col-span-2">
@@ -407,7 +407,7 @@ function AirlineForm() {
         <input id="name" type="text" placeholder="e.g. Maria Santos" autoComplete="name" value={f.name} onChange={e => u('name', e.target.value)} className={ic(!!err.name)} />
       </Fld>
       <Fld label="Mobile Number" id="phone" error={err.phone}>
-        <input id="phone" type="tel" placeholder="e.g. 09159234547" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
+        <input id="phone" type="tel" placeholder="e.g. 09082533234" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
       </Fld>
 
       <div className="sm:col-span-2">
@@ -482,7 +482,7 @@ function GeneralForm() {
         <input id="name" type="text" placeholder="e.g. Maria Santos" autoComplete="name" value={f.name} onChange={e => u('name', e.target.value)} className={ic(!!err.name)} />
       </Fld>
       <Fld label="Mobile Number" id="phone" error={err.phone}>
-        <input id="phone" type="tel" placeholder="e.g. 09159234547" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
+        <input id="phone" type="tel" placeholder="e.g. 09082533234" autoComplete="tel" value={f.phone} onChange={e => u('phone', e.target.value)} className={ic(!!err.phone)} />
       </Fld>
 
       <div className="sm:col-span-2">
@@ -745,7 +745,7 @@ export function Contact() {
         style={{ height: '420px' }} className="w-full"
       >
         <iframe
-          title="A N D Travel and Tours — Danarose Residences, Bacoor, Cavite"
+          title="A N D Travel and Tours — Bacoor, Cavite"
           src={CONTACT.mapEmbed} width="100%" height="100%"
           style={{ border: 0, display: 'block' }}
           allowFullScreen loading="lazy" referrerPolicy="strict-origin"

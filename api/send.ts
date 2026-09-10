@@ -81,7 +81,7 @@ function inboxHtml({ name, phone, email, service, message, time }: Payload) {
 
     <!-- Footer -->
     <div style="background:#F9FAFB;border-top:1px solid #E5E7EB;padding:16px 32px;text-align:center;">
-      <p style="margin:0;color:#9CA3AF;font-size:12px;">A N D Travel and Tours · Danarose Residences, Bacoor, Cavite, Philippines</p>
+      <p style="margin:0;color:#9CA3AF;font-size:12px;">A N D Travel and Tours · Bacoor, Cavite, Philippines</p>
     </div>
 
   </div>
@@ -159,7 +159,7 @@ function autoReplyHtml({ name, service }: Payload) {
     <!-- Footer -->
     <div style="background:#111111;padding:24px 32px;text-align:center;">
       <p style="margin:0 0 6px;color:#D4A017;font-style:italic;font-size:13px;font-weight:600;">Your Journey, Our Priority</p>
-      <p style="margin:0;color:rgba(255,255,255,0.35);font-size:11px;">A N D Travel and Tours · Danarose Residences, Bacoor, Cavite, Philippines</p>
+      <p style="margin:0;color:rgba(255,255,255,0.35);font-size:11px;">A N D Travel and Tours · Bacoor, Cavite, Philippines</p>
       <p style="margin:4px 0 0;color:rgba(255,255,255,0.35);font-size:11px;">andtraveltours87@gmail.com · andtraveltours.xyz</p>
     </div>
 
